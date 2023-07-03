@@ -1,0 +1,8 @@
+ifndef COMPOSE_DEF
+COMPOSE_DEF = 1
+
+.PHONY: compose-run
+compose-run:
+	sudo docker-compose up
+
+endif

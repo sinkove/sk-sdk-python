@@ -1,0 +1,23 @@
+# python project
+*.egg-info/
+.eggs/
+dist/
+build/
+__pycache__
+.pytest_cache
+.coverage
+.venv
+coverage.xml
+
+# editor
+.idea
+*.swp
+*.swo
+.~lock.*
+.vscode/*
+
+# jupyter
+.ipynb_checkpoints
+
+# environment
+.env

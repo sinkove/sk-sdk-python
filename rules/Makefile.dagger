@@ -1,0 +1,10 @@
+# Define variables and rules related to dagger
+
+ifndef DAGGER_DEF
+DAGGER_DEF = 1
+
+.PHONY: dagger-test
+dagger-test:
+	sudo python dagger/test.py
+
+endif

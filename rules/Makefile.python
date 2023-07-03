@@ -1,0 +1,58 @@
+# Define variables and rules related to python
+
+ifndef PYTHON
+PYTHON = python3
+
+include ./rules/Makefile.settings
+include ./rules/Makefile.pip
+
+VIRTUAL_ENV ?= .venv
+
+# python commands
+PYTHON_TEST_CMD := pytest tests
+
+
+.PHONY: python-setup
+python-setup: pip-install-project
+
+
+.PHONY: python-test
+python-test:
+	$(PYTHON_TEST_CMD)
+
+
+.PHONY: python-build
+python-build:
+	$(PYTHON) -m build
+
+
+.PHONY: python-deploy
+python-deploy: python-build
+	@echo "Not implemented"
+
+
+.PHONY: python-run
+python-run:
+	$(PYTHON) -m $(SETTINGS_PACKAGE_NAME)
+
+
+.PHONY: python-venv
+python-venv:
+	@echo "${VIRTUAL_ENV}/bin/activate"
+
+
+.PHONY: python-clean
+python-clean:
+	rm -rf build dist .egg src/*.egg-info
+
+
+.PHONY: python-coverage
+python-coverage:
+	coverage report
+
+
+.PHONY: python-cobertura
+python-cobertura:
+	coverage xml
+
+endif

@@ -1,0 +1,9 @@
+ifdef CI
+SETTINGS_VERSION ?= ${CI_COMMIT_REF_NAME}
+else
+SETTINGS_VERSION ?= $(shell git fetch -a 2>/dev/null 1>&2 && git describe --match "v[0-9]*" --abbrev=4 HEAD)
+endif
+
+SETTINGS_ORGANIZATION_NAME := sinkove
+SETTINGS_PROJECT_NAME := sk-sdk-python
+SETTINGS_PACKAGE_NAME := sinkove

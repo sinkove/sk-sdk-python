@@ -1,0 +1,23 @@
+ifndef PIP
+PIP = python3 -m pip
+
+
+include ./rules/Makefile.settings
+
+
+PIP_PROJECT_REQUIREMENTS := '.[dev]'
+
+
+PIP_INSTALL_CMD := $(PIP) install
+
+
+.PHONY: pip-upgrade
+pip-upgrade:
+	$(PIP_INSTALL_CMD) --upgrade pip
+
+
+.PHONY: pip-install-project
+pip-install-project: pip-upgrade
+	$(PIP_INSTALL_CMD) -e $(PIP_PROJECT_REQUIREMENTS)
+
+endif
