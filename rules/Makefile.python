@@ -55,4 +55,12 @@ python-coverage:
 python-cobertura:
 	coverage xml
 
+.PHONY: python-publish-test
+python-publish-test:
+	$(PYTHON) -m twine upload --repository testpypi dist/*
+
+.PHONY: python-publish
+python-publish:
+	$(PYTHON) -m twine upload dist/*
+
 endif
